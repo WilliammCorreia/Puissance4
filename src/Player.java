@@ -2,16 +2,30 @@ import java.util.Scanner;
 
 public class Player {
 
-    public String name;
-    public static int pawn_nb = 21;
+    private String name;
+    private int pawn_nb = 21;
     Scanner scanner = new Scanner(System.in);
 
     Player(String name) {
-        name = name;
+        this.name = name;
+    }
+
+    // Getter
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPawn_nb() {
+        return this.pawn_nb;
+    }
+
+    // Setter
+    public void setPawn_nb(int nb) {
+        this.pawn_nb = nb;
     }
 
     // Methods
-    public void play(int colomn) {
+    public void play(int column) {
 
     }
 
