@@ -1,7 +1,10 @@
+import View.view;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        view v = new view();
 
         // Variables
         Scanner scanner = new Scanner(System.in);
