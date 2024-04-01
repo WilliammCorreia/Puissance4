@@ -1,10 +1,12 @@
 import View.view;
+import Controller.controller;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         view v = new view();
+        controller c = new controller(v);
 
         // Variables
         Scanner scanner = new Scanner(System.in);
