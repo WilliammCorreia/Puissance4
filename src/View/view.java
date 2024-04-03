@@ -2,11 +2,13 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 public class view {
 
     private JFrame window;
     private JPanel header;
+    private JLabel name;
     private JPanel board;
     private int[][] matrice;
 
@@ -20,6 +22,12 @@ public class view {
         header = new JPanel();
         header.setBounds(0, 0, 710, 70 );
         header.setBackground(Color.gray);
+
+        name = new JLabel();
+        name.setHorizontalAlignment(JLabel.CENTER);
+        header.setLayout(new FlowLayout(FlowLayout.CENTER));
+        name.setFont(new Font("Arial", Font.BOLD, 32));
+        header.add(name);
 
         board = new JPanel() {
 
@@ -57,6 +65,23 @@ public class view {
         window.setBounds(200, 100, 726, 719);
         window.setVisible(true);
 
+    }
+
+    // Methods
+
+    // Récupérer le nom de la personne qui joue la manche
+    public void setName(String text) {
+        name.setText(text);
+
+        if(Objects.equals(text, "Jaune")) {
+            name.setForeground(Color.yellow);
+        }
+        else {
+            name.setForeground(Color.red);
+        }
+
+        header.add(name);
+        header.revalidate();
     }
 
     // Getter

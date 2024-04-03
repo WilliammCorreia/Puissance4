@@ -14,7 +14,7 @@ public class modele {
     int pawn1, pawn2, pawn3, pawn4; // Pions pour vérifier s'il y un puissance 4
     private boolean pl1_win = false; // Pour dire que joueur1 a gagné
     private boolean pl2_win = false; // Pour dire que joueur2 a gagné
-
+    private String name;
 
     public modele() {
 
@@ -145,6 +145,18 @@ public class modele {
             }
         }
 
+    }
+
+    // Retourne le nom du joueur qui joue la manche
+    public String returnName() {
+
+        if ( manche % 2 == 0 ) {
+            name = "Rouge";
+        } else {
+            name = "Jaune";
+        }
+
+        return name;
     }
 
     // Getter
