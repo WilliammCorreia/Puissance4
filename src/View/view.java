@@ -18,7 +18,7 @@ public class view {
         window.setLayout(null);
 
         header = new JPanel();
-        header.setBounds(0, 0, 710, 100 );
+        header.setBounds(0, 0, 710, 70 );
         header.setBackground(Color.gray);
 
         board = new JPanel() {
@@ -47,14 +47,14 @@ public class view {
             }
         };
 
-        board.setBounds(0, 100, 710, 610);
+        board.setBounds(0, 70, 710, 610);
         board.setBackground(Color.white.darker());
 
         window.add(header);
         window.add(board);
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setBounds(200, 100, 726, 749);
+        window.setBounds(200, 100, 726, 719);
         window.setVisible(true);
 
     }

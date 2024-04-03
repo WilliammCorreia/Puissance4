@@ -19,6 +19,7 @@ public class modele {
 
     }
 
+    // Ajouter un pion dans la matrice
     public void addPawn(int column) {
 
         // On vérifie la hauteur de la colonne
@@ -38,6 +39,7 @@ public class modele {
         }
     }
 
+    // Affiche la matrice
     public void showBoard() {
 
         // On affiche le plateau
@@ -51,14 +53,74 @@ public class modele {
         }
     }
 
+    // Vérifier s'il y a un puissance 4
+    public void verifWin(int[][] matrice) {
+
+        // Vérification si le joueur à 4 pions alignés horizontalement
+        for (i = 0; i < 6; i++) {
+            for (ii = 0; ii < 4; ii++) {
+
+                pawn1 = board.board[ii][i];
+                pawn2 = board.board[(ii + 1)][i];
+                pawn3 = board.board[(ii + 2)][i];
+                pawn4 = board.board[(ii + 3)][i];
+
+                if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
+                    pl1_win = true;
+                }
+            }
+        }
+
+        // Vérification si le joueur à 4 pions alignés verticalement
+        for (i = 0; i < 3; i++) {
+            for (ii = 0; ii < 7; ii++) {
+
+                pawn1 = board.board[ii][i];
+                pawn2 = board.board[ii][(i + 1)];
+                pawn3 = board.board[ii][(i + 2)];
+                pawn4 = board.board[ii][(i + 3)];
+
+                if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
+                    pl1_win = true;
+                }
+            }
+        }
+
+        // Vérification si le joueur à 4 pions alignés en diagonale "\"
+        for (i = 0; i < 3; i++) {
+            for (ii = 0; ii < 4; ii++) {
+
+                pawn1 = board.board[ii][i];
+                pawn2 = board.board[(ii + 1)][(i + 1)];
+                pawn3 = board.board[(ii + 2)][(i + 2)];
+                pawn4 = board.board[(ii + 3)][(i + 3)];
+
+                if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
+                    pl1_win = true;
+                }
+            }
+        }
+
+        // Vérification si le joueur à 4 pions alignés en diagonale "/"
+        for (i = 5; i > 2; i--) {
+            for (ii = 0; ii < 3; ii++) {
+
+                pawn1 = board.board[ii][i];
+                pawn2 = board.board[(ii + 1)][(i - 1)];
+                pawn3 = board.board[(ii + 2)][(i - 2)];
+                pawn4 = board.board[(ii + 3)][(i - 3)];
+
+                if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
+                    pl1_win = true;
+                }
+            }
+        }
+
+    }
 
     // Getter
     public int[][] getBoard() {
         return board.board;
-    }
-
-    public int getManche() {
-        return manche;
     }
 
     // Setter
