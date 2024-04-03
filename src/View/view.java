@@ -64,6 +64,10 @@ public class view {
         return this.board;
     }
 
+    public JFrame getWindow() {
+        return this.window;
+    }
+
     // Setter
     public void setMatrice(int[][] newMatrice) {
         matrice = newMatrice;

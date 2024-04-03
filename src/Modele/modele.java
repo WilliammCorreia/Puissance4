@@ -12,8 +12,9 @@ public class modele {
     int i = 0; // Variable d'incrémentation
     int ii = 0; // Variable d'incrémentation
     int pawn1, pawn2, pawn3, pawn4; // Pions pour vérifier s'il y un puissance 4
-    boolean pl1_win = false; // Pour dire que joueur1 a gagné
-    boolean pl2_win = false; // Pour dire que joueur2 a gagné
+    private boolean pl1_win = false; // Pour dire que joueur1 a gagné
+    private boolean pl2_win = false; // Pour dire que joueur2 a gagné
+
 
     public modele() {
 
@@ -66,7 +67,14 @@ public class modele {
                 pawn4 = board.board[(ii + 3)][i];
 
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
-                    pl1_win = true;
+
+                    if ( manche % 2 == 0) {
+                        pl1_win = true;
+                    }
+                    else {
+                        pl2_win = true;
+                    }
+
                 }
             }
         }
@@ -81,7 +89,14 @@ public class modele {
                 pawn4 = board.board[ii][(i + 3)];
 
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
-                    pl1_win = true;
+
+                    if ( manche % 2 == 0) {
+                        pl1_win = true;
+                    }
+                    else {
+                        pl2_win = true;
+                    }
+
                 }
             }
         }
@@ -96,7 +111,14 @@ public class modele {
                 pawn4 = board.board[(ii + 3)][(i + 3)];
 
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
-                    pl1_win = true;
+
+                    if ( manche % 2 == 0) {
+                        pl1_win = true;
+                    }
+                    else {
+                        pl2_win = true;
+                    }
+
                 }
             }
         }
@@ -111,7 +133,14 @@ public class modele {
                 pawn4 = board.board[(ii + 3)][(i - 3)];
 
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
-                    pl1_win = true;
+
+                    if ( manche % 2 == 0) {
+                        pl1_win = true;
+                    }
+                    else {
+                        pl2_win = true;
+                    }
+
                 }
             }
         }
@@ -121,6 +150,18 @@ public class modele {
     // Getter
     public int[][] getBoard() {
         return board.board;
+    }
+
+    public int getManche() {
+        return manche;
+    }
+
+    public boolean isPl1_win() {
+        return pl1_win;
+    }
+
+    public boolean isPl2_win() {
+        return pl2_win;
     }
 
     // Setter

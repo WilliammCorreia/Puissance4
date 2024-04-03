@@ -1,6 +1,7 @@
 package Controller;
 
 import View.view;
+import View.winScreen;
 import Modele.modele;
 
 import java.awt.event.MouseAdapter;
@@ -10,6 +11,7 @@ public class controller {
 
     public view view;
     public int column;
+    public winScreen popUp;
 
     public controller(view view, modele board) {
 
@@ -27,6 +29,13 @@ public class controller {
                     board.setManche();
                     board.verifWin(board.getBoard());
 
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
+
                 } else if (e.getX() >= 100 && e.getX() <= 200 && e.getY() >= 0 && e.getY() <= 610) {
                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                     column = 1;
@@ -35,6 +44,13 @@ public class controller {
                     view.setMatrice(board.getBoard());
                     board.setManche();
                     board.verifWin(board.getBoard());
+
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
 
                 } else if (e.getX() >= 200 && e.getX() <= 300 && e.getY() >= 0 && e.getY() <= 610) {
                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
@@ -45,6 +61,13 @@ public class controller {
                     board.setManche();
                     board.verifWin(board.getBoard());
 
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
+
                 } else if (e.getX() >= 300 && e.getX() <= 400 && e.getY() >= 0 && e.getY() <= 610) {
                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                     column = 3;
@@ -53,6 +76,13 @@ public class controller {
                     view.setMatrice(board.getBoard());
                     board.setManche();
                     board.verifWin(board.getBoard());
+
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
 
                 } else if (e.getX() >= 400 && e.getX() <= 500 && e.getY() >= 0 && e.getY() <= 610) {
                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
@@ -63,6 +93,13 @@ public class controller {
                     board.setManche();
                     board.verifWin(board.getBoard());
 
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
+
                 } else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 0 && e.getY() <= 610) {
                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                     column = 5;
@@ -72,6 +109,13 @@ public class controller {
                     board.setManche();
                     board.verifWin(board.getBoard());
 
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
+
                 } else if (e.getX() >= 600 && e.getX() <= 700 && e.getY() >= 0 && e.getY() <= 610) {
                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                     column = 6;
@@ -80,6 +124,13 @@ public class controller {
                     view.setMatrice(board.getBoard());
                     board.setManche();
                     board.verifWin(board.getBoard());
+
+                    if (board.isPl1_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 1");
+                    }
+                    else if (board.isPl2_win()) {
+                        popUp = new winScreen(view.getWindow(), "Joueur 2");
+                    }
 
                 }
             }
