@@ -8,8 +8,11 @@ public class view {
     private JFrame window;
     private JPanel header;
     private JPanel board;
+    private int[][] matrice;
 
     public view() {
+
+        matrice = new int[7][6];
 
         window = new JFrame("Puissance 4");
         window.setLayout(null);
@@ -27,8 +30,18 @@ public class view {
                 for (int i = 0; i < 6; i++) {
                     for (int ii = 0; ii < 7; ii++) {
 
-                        g.setColor(Color.white);
-                        g.fillOval(ii*100+10, i*100+10, 90, 90);
+                        if ( matrice[ii][i] == 0 ) {
+                            g.setColor(Color.white);
+                            g.fillOval(ii*100+10, i*100+10, 90, 90);
+                        }
+                        else if ( matrice[ii][i] == 1 ) {
+                            g.setColor(Color.yellow);
+                            g.fillOval(ii*100+10, i*100+10, 90, 90);
+                        }
+                        else if ( matrice[ii][i] == 2 ) {
+                            g.setColor(Color.red);
+                            g.fillOval(ii*100+10, i*100+10, 90, 90);
+                        }
                     }
                 }
             }
@@ -44,11 +57,16 @@ public class view {
         window.setBounds(200, 100, 726, 749);
         window.setVisible(true);
 
-
     }
 
     // Getter
     public JPanel getBoard() {
         return this.board;
+    }
+
+    // Setter
+    public void setMatrice(int[][] newMatrice) {
+        matrice = newMatrice;
+        this.board.repaint();
     }
 }
