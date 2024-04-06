@@ -2,7 +2,6 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Objects;
 
 public class view {
 
@@ -62,6 +61,7 @@ public class view {
         window.add(board);
 
         window.setSize(726, 719);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 

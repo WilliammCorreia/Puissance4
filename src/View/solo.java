@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class duo {
+public class solo {
 
     private JFrame window;
     private JLabel title;
@@ -11,8 +11,8 @@ public class duo {
     private JTextField nameJ2;
     private JButton submit;
 
-    public duo() {
-        window = new JFrame("Puissance 4 || Duo");
+    public solo() {
+        window = new JFrame("Puissance 4 || Solo");
         window.setLayout(null);
 
         title = new JLabel("Entrer le nom des joueurs :");
@@ -22,7 +22,7 @@ public class duo {
         nameJ1 = new JTextField("Nom du joueur 1");
         nameJ1.setBounds(50, 75, 400, 30);
 
-        nameJ2 = new JTextField("Nom du joueur 2");
+        nameJ2 = new JTextField("IA Dark Vador");
         nameJ2.setBounds(50, 125, 400, 30);
 
         submit = new JButton("Jouer !");

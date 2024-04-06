@@ -1,5 +1,7 @@
 package Modele;
 
+import java.util.Random;
+
 public class modele {
 
     // Variables
@@ -15,6 +17,8 @@ public class modele {
     private boolean pl1_win = false; // Pour dire que joueur1 a gagné
     private boolean pl2_win = false; // Pour dire que joueur2 a gagné
     private String name;
+    Random rand; // Objet qui permet de générer un nombre aléatoire
+    int columnAI; // Chiffre aléatoire entre 0 et 6
 
     public modele() {
 
@@ -52,6 +56,14 @@ public class modele {
             }
             System.out.print("|");
         }
+    }
+
+    // IA pour le mode seul
+    public int columAI() {
+
+        rand = new Random();
+        columnAI = rand.nextInt(7);
+        return columnAI;
     }
 
     // Vérifier s'il y a un puissance 4
@@ -125,7 +137,7 @@ public class modele {
 
         // Vérification si le joueur à 4 pions alignés en diagonale "/"
         for (i = 5; i > 2; i--) {
-            for (ii = 0; ii < 3; ii++) {
+            for (ii = 0; ii < 4; ii++) {
 
                 pawn1 = board.board[ii][i];
                 pawn2 = board.board[(ii + 1)][(i - 1)];
