@@ -17,6 +17,8 @@ public class controller {
 
         this.view = view;
 
+
+
         this.view.getBoard().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

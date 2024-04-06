@@ -61,8 +61,8 @@ public class view {
         window.add(header);
         window.add(board);
 
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setBounds(200, 100, 726, 719);
+        window.setSize(726, 719);
+        window.setLocationRelativeTo(null);
         window.setVisible(true);
 
     }
