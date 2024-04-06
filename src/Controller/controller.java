@@ -18,6 +18,7 @@ public class controller {
     public menu menu;
     public duo duo;
     public solo solo;
+    public draw draw;
 
     public controller(menu v,modele board) {
 
@@ -42,6 +43,11 @@ public class controller {
                         view.getBoard().addMouseListener(new MouseAdapter() {
                             @Override
                             public void mouseClicked(MouseEvent e) {
+
+                                if ( board.getManche() == 41 ) {
+                                    draw = new draw(view.getWindow());
+                                }
+
                                 if (e.getX() >= 0 && e.getX() <= 100 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 0;
@@ -404,6 +410,11 @@ public class controller {
                         view.getBoard().addMouseListener(new MouseAdapter() {
                             @Override
                             public void mouseClicked(MouseEvent e) {
+
+                                if ( board.getManche() == 41 ) {
+                                    draw = new draw(view.getWindow());
+                                }
+
                                 if (e.getX() >= 0 && e.getX() <= 100 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 0;
