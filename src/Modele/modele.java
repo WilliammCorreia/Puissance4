@@ -9,14 +9,14 @@ public class modele {
     int column; // Colonne du plateau
     int hauteur = 0; // Compte la hauteur de la colonne de pion
     public Board board = new Board(); // Initialisation du plateau
-    Player player1 = new Player("Joueur1");
-    Player player2 = new Player("Joueur2");
+    Player player1 = new Player("Joueur1"); // Classe joueur 2
+    Player player2 = new Player("Joueur2"); // Classe joueur 2
     int i = 0; // Variable d'incrémentation
     int ii = 0; // Variable d'incrémentation
     int pawn1, pawn2, pawn3, pawn4; // Pions pour vérifier s'il y un puissance 4
     private boolean pl1_win = false; // Pour dire que joueur1 a gagné
     private boolean pl2_win = false; // Pour dire que joueur2 a gagné
-    private String name;
+    private String name; // Nom attribué au joueurs
     Random rand; // Objet qui permet de générer un nombre aléatoire
     int columnAI; // Chiffre aléatoire entre 0 et 6
 
@@ -61,9 +61,19 @@ public class modele {
     // IA pour le mode seul
     public int columAI() {
 
-        rand = new Random();
-        columnAI = rand.nextInt(7);
-        return columnAI;
+        do {
+
+            rand = new Random();
+            columnAI = rand.nextInt(7);
+
+            // On vérifie que la colonne ne soit pas pleine
+            if (board.board[columnAI][0] == 0) {
+                return columnAI;
+            }
+
+        } while ( board.board[columnAI][0] != 0 );
+
+        return 0;
     }
 
     // Vérifier s'il y a un puissance 4
@@ -190,6 +200,7 @@ public class modele {
 
     // Setter
     public void setManche() {
+        System.out.println("\nManche : " + manche);
         this.manche++;
     }
 

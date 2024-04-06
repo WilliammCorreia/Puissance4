@@ -10,6 +10,7 @@ public class view {
     private JLabel name;
     private JPanel board;
     private int[][] matrice;
+    private int manche;
 
     public view(String nameP1) {
 
@@ -70,13 +71,10 @@ public class view {
     // Methods
 
     // Récupérer le nom de la personne qui joue la manche
-    int manche = 0;
     public void setName(String text) {
         name.setText(text);
 
-        manche++;
-
-        if(manche % 2 != 0) {
+        if( manche % 2 != 0) {
             name.setForeground(Color.yellow);
         }
         else {
@@ -101,4 +99,9 @@ public class view {
         matrice = newMatrice;
         this.board.repaint();
     }
+
+    public void setManche() {
+        this.manche += 1;
+    }
+
 }

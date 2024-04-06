@@ -14,6 +14,7 @@ public class controller {
     public view view;
     public int column;
     public winScreen popUp;
+    public error error;
     public menu menu;
     public duo duo;
     public solo solo;
@@ -44,143 +45,333 @@ public class controller {
                                 if (e.getX() >= 0 && e.getX() <= 100 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 0;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
+
 
                                 } else if (e.getX() >= 100 && e.getX() <= 200 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 1;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 200 && e.getX() <= 300 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 2;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 300 && e.getX() <= 400 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 3;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 400 && e.getX() <= 500 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 4;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 5;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 600 && e.getX() <= 700 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 6;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                    // Vérification de la hauteur de la colonne
+                                    if ( board.getBoard()[column][0] == 0)
+                                    {
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                        }
+
+                                        if ( !board.isPl1_win() ) {
+
+                                            // Tour de IA Dark Vador
+                                            board.setManche();
+                                            view.setManche();
+                                            view.setName(board.returnName());
+                                            board.addPawn(board.columAI());
+                                            board.showBoard();
+                                            view.setMatrice(board.getBoard());
+                                            board.verifWin(board.getBoard());
+
+                                            if (board.isPl1_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
+                                            }
+                                            else if (board.isPl2_win()) {
+                                                popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                            }
+
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
-                                }
-
-                                if (board.isPl1_win()) {
-
-                                }
-                                else {
-
-                                    // Tour de IA Dark Vador
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(board.columAI());
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
-
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ1().getText());
-                                    }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), solo.getNameJ2().getText());
-                                    }
                                 }
 
                             }
@@ -216,120 +407,184 @@ public class controller {
                                 if (e.getX() >= 0 && e.getX() <= 100 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 0;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
+
 
                                 } else if (e.getX() >= 100 && e.getX() <= 200 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 1;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 200 && e.getX() <= 300 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 2;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 300 && e.getX() <= 400 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 3;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 400 && e.getX() <= 500 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 4;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 5;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 } else if (e.getX() >= 600 && e.getX() <= 700 && e.getY() >= 0 && e.getY() <= 610) {
                                     System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
                                     column = 6;
-                                    board.setManche();
-                                    view.setName(board.returnName());
-                                    board.addPawn(column);
-                                    board.showBoard();
-                                    view.setMatrice(board.getBoard());
-                                    board.verifWin(board.getBoard());
 
-                                    if (board.isPl1_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    if ( board.getBoard()[column][0] == 0) {
+
+                                        board.setManche();
+                                        view.setManche();
+                                        view.setName(board.returnName());
+                                        board.addPawn(column);
+                                        board.showBoard();
+                                        view.setMatrice(board.getBoard());
+                                        board.verifWin(board.getBoard());
+
+                                        if (board.isPl1_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                        }
+                                        else if (board.isPl2_win()) {
+                                            popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                        }
+
                                     }
-                                    else if (board.isPl2_win()) {
-                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    else {
+                                        error = new error(view.getWindow());
                                     }
 
                                 }
