@@ -69,10 +69,10 @@ public class modele {
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
 
                     if ( manche % 2 == 0) {
-                        pl1_win = true;
-                    }
-                    else {
                         pl2_win = true;
+                    }
+                    else  {
+                        pl1_win = true;
                     }
 
                 }
@@ -91,10 +91,10 @@ public class modele {
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
 
                     if ( manche % 2 == 0) {
-                        pl1_win = true;
-                    }
-                    else {
                         pl2_win = true;
+                    }
+                    else  {
+                        pl1_win = true;
                     }
 
                 }
@@ -113,10 +113,10 @@ public class modele {
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
 
                     if ( manche % 2 == 0) {
-                        pl1_win = true;
-                    }
-                    else {
                         pl2_win = true;
+                    }
+                    else  {
+                        pl1_win = true;
                     }
 
                 }
@@ -135,10 +135,10 @@ public class modele {
                 if (pawn1 == pawn2 && pawn2 == pawn3 && pawn3 == pawn4 && pawn1 != 0) {
 
                     if ( manche % 2 == 0) {
-                        pl1_win = true;
-                    }
-                    else {
                         pl2_win = true;
+                    }
+                    else  {
+                        pl1_win = true;
                     }
 
                 }
@@ -151,9 +151,9 @@ public class modele {
     public String returnName() {
 
         if ( manche % 2 == 0 ) {
-            name = "Rouge";
+            name = player1.getName();
         } else {
-            name = "Jaune";
+            name = player2.getName();
         }
 
         return name;
@@ -179,5 +179,13 @@ public class modele {
     // Setter
     public void setManche() {
         this.manche++;
+    }
+
+    public void setPlayer1Name(String name) {
+        this.player1.setName(name);
+    }
+
+    public void setPlayer2Name(String name) {
+        this.player2.setName(name);
     }
 }

@@ -26,6 +26,10 @@ public class Player {
         this.pawn_nb = nb;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     // Methods
     public void play(int column) {
 

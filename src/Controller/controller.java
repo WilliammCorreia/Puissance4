@@ -1,147 +1,182 @@
 package Controller;
 
-import View.view;
-import View.winScreen;
+import View.*;
 import Modele.modele;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class controller {
 
     public view view;
     public int column;
     public winScreen popUp;
+    public menu menu;
+    public duo duo;
 
-    public controller(view view, modele board) {
+    public controller(modele board) {
 
-        this.view = view;
+        menu = new menu();
 
-
-
-        this.view.getBoard().addMouseListener(new MouseAdapter() {
+        this.menu.getSolo().addActionListener(new ActionListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getX() >= 0 && e.getX() <= 100 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 0;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+            public void actionPerformed(ActionEvent e) {
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                System.out.println("Le bouton a été cliqué ! SOLO");
+                menu.getWindow().dispose();
+            }
+        });
 
-                } else if (e.getX() >= 100 && e.getX() <= 200 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 1;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+        // Mode de jeu à 2
+        this.menu.getDuo().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                duo = new duo();
 
-                } else if (e.getX() >= 200 && e.getX() <= 300 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 2;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+                duo.getSubmit().addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                        board.setPlayer1Name(duo.getNameJ1().getText());
+                        board.setPlayer2Name(duo.getNameJ2().getText());
 
-                } else if (e.getX() >= 300 && e.getX() <= 400 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 3;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+                        view = new view(duo.getNameJ1().getText());
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                        view.getBoard().addMouseListener(new MouseAdapter() {
+                            @Override
+                            public void mouseClicked(MouseEvent e) {
+                                if (e.getX() >= 0 && e.getX() <= 100 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 0;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
 
-                } else if (e.getX() >= 400 && e.getX() <= 500 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 4;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                                } else if (e.getX() >= 100 && e.getX() <= 200 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 1;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
 
-                } else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 5;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                                } else if (e.getX() >= 200 && e.getX() <= 300 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 2;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
 
-                } else if (e.getX() >= 600 && e.getX() <= 700 && e.getY() >= 0 && e.getY() <= 610) {
-                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
-                    column = 6;
-                    board.setManche();
-                    view.setName(board.returnName());
-                    board.addPawn(column);
-                    board.showBoard();
-                    view.setMatrice(board.getBoard());
-                    board.verifWin(board.getBoard());
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
 
-                    if (board.isPl1_win()) {
-                        popUp = new winScreen(view.getWindow(), "Jaune");
-                    }
-                    else if (board.isPl2_win()) {
-                        popUp = new winScreen(view.getWindow(), "Rouge");
-                    }
+                                } else if (e.getX() >= 300 && e.getX() <= 400 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 3;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
 
-                }
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
+
+                                } else if (e.getX() >= 400 && e.getX() <= 500 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 4;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
+
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
+
+                                } else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 5;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
+
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
+
+                                } else if (e.getX() >= 600 && e.getX() <= 700 && e.getY() >= 0 && e.getY() <= 610) {
+                                    System.out.println("Cliqué à : " + e.getX() + ", " + e.getY());
+                                    column = 6;
+                                    board.setManche();
+                                    view.setName(board.returnName());
+                                    board.addPawn(column);
+                                    board.showBoard();
+                                    view.setMatrice(board.getBoard());
+                                    board.verifWin(board.getBoard());
+
+                                    if (board.isPl1_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ1().getText());
+                                    }
+                                    else if (board.isPl2_win()) {
+                                        popUp = new winScreen(view.getWindow(), duo.getNameJ2().getText());
+                                    }
+
+                                }
+                            }
+                        });
+
+                        duo.getWindow().dispose();
+                    }
+                });
+
+                menu.getWindow().dispose();
             }
         });
     }

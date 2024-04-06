@@ -13,7 +13,7 @@ public class winScreen {
         popup = new JDialog(window, "Victoire", true);
         popup.setLayout(new FlowLayout());
 
-        main = new JLabel("Les " + name + " ont gagnés !");
+        main = new JLabel(name + " a gagné !");
 
         popup.add(main);
 

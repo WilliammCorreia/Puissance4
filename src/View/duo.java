@@ -5,11 +5,11 @@ import java.awt.*;
 
 public class duo {
 
-    JFrame window;
-    JLabel title;
-    JTextField nameJ1;
-    JTextField nameJ2;
-    JButton submit;
+    private JFrame window;
+    private JLabel title;
+    private JTextField nameJ1;
+    private JTextField nameJ2;
+    private JButton submit;
 
     public duo() {
         window = new JFrame("Puissance 4 || Duo");
@@ -37,6 +37,23 @@ public class duo {
         window.setSize(500, 300);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+    }
+
+    // Getter
+    public JTextField getNameJ1() {
+        return nameJ1;
+    }
+
+    public JTextField getNameJ2() {
+        return nameJ2;
+    }
+
+    public JButton getSubmit() {
+        return submit;
+    }
+
+    public JFrame getWindow() {
+        return window;
     }
 
     public static void main(String[] args) {

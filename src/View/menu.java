@@ -5,10 +5,10 @@ import java.awt.*;
 
 public class menu {
 
-    JFrame window;
-    JLabel title;
-    JButton solo;
-    JButton duo;
+    private JFrame window;
+    private JLabel title;
+    private JButton solo;
+    private JButton duo;
 
     public menu() {
         window = new JFrame("Puissance 4 || Menu");
@@ -35,6 +35,19 @@ public class menu {
         window.setSize(500, 250);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+    }
+
+    // Getter
+    public JButton getSolo() {
+        return solo;
+    }
+
+    public JButton getDuo() {
+        return duo;
+    }
+
+    public JFrame getWindow() {
+        return window;
     }
 
     public static void main(String[] args) {

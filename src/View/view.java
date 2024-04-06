@@ -12,7 +12,7 @@ public class view {
     private JPanel board;
     private int[][] matrice;
 
-    public view() {
+    public view(String nameP1) {
 
         matrice = new int[7][6];
 
@@ -23,7 +23,7 @@ public class view {
         header.setBounds(0, 0, 710, 70 );
         header.setBackground(Color.gray);
 
-        name = new JLabel();
+        name = new JLabel(nameP1);
         name.setHorizontalAlignment(JLabel.CENTER);
         header.setLayout(new FlowLayout(FlowLayout.CENTER));
         name.setFont(new Font("Arial", Font.BOLD, 32));
@@ -70,10 +70,13 @@ public class view {
     // Methods
 
     // Récupérer le nom de la personne qui joue la manche
+    int manche = 0;
     public void setName(String text) {
         name.setText(text);
 
-        if(Objects.equals(text, "Jaune")) {
+        manche++;
+
+        if(manche % 2 != 0) {
             name.setForeground(Color.yellow);
         }
         else {

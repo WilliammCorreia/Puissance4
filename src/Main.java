@@ -1,15 +1,11 @@
-import View.*;
 import Controller.controller;
 import Modele.modele;
 
 public class Main {
     public static void main(String[] args) {
 
-        menu menu = new menu();
-        duo duo = new duo();
-        view v = new view();
         modele m = new modele();
-        controller c = new controller(v,m);
+        controller c = new controller(m);
 
 
         // Version 1 du jeu depuis la console
