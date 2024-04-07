@@ -58,6 +58,24 @@ public class modele {
         }
     }
 
+    // Réinitialiser la partie
+    public void resetGame() {
+
+        // Réinitialisation du plateau
+        for (i = 0; i < 6; i++) {
+            for (ii = 0; ii < 7; ii++) {
+                board.board[ii][i] = 0;
+            }
+        }
+
+        // Réinitialisation du gagnant
+        this.setPl1_win();
+        this.setPl2_win();
+
+        // Réinitialisation de la manche
+        this.manche = 0;
+    }
+
     // IA pour le mode seul
     public int columAI() {
 
@@ -210,5 +228,13 @@ public class modele {
 
     public void setPlayer2Name(String name) {
         this.player2.setName(name);
+    }
+
+    public void setPl1_win() {
+        this.pl1_win = false;
+    }
+
+    public void setPl2_win() {
+        this.pl2_win = false;
     }
 }

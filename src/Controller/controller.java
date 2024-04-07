@@ -31,6 +31,9 @@ public class controller {
 
                 solo = new solo();
 
+                // Réinitialisation de la partie précédente
+                board.resetGame();
+
                 solo.getSubmit().addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -387,7 +390,7 @@ public class controller {
                     }
                 });
 
-                menu.getWindow().dispose();
+//                menu.getWindow().dispose();
             }
         });
 
@@ -402,6 +405,10 @@ public class controller {
                     @Override
                     public void actionPerformed(ActionEvent e) {
 
+                        // Réinitialisation de la partie précédente
+                        board.resetGame();
+
+                        // Initialisation des noms
                         board.setPlayer1Name(duo.getNameJ1().getText());
                         board.setPlayer2Name(duo.getNameJ2().getText());
 
@@ -606,7 +613,7 @@ public class controller {
                     }
                 });
 
-                menu.getWindow().dispose();
+//                menu.getWindow().dispose();
             }
         });
 
